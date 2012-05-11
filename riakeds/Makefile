@@ -13,6 +13,9 @@ LICENSE=		apache-2.0
 
 CONFLICTS=		riak-*
 
+BUILD_DEPENDS+= erlang-14.1.4*:../../lang/erlang
+BUILDLINK_DEPMETHOD.erlang= build#
+
 PKG_DESTDIR_SUPPORT=	user-destdir
 
 USE_LANGUAGES=		c c++
@@ -32,6 +35,7 @@ EXTRACT_ONLY+=		${INNOSTORE}
 .include "options.mk"
 .include "../../lang/erlang/Makefile.versions"
 .include "Makefile.versions"
+.include "../../mk/java-vm.mk"
 
 RIAK_USER?=		riak
 RIAK_GROUP?=		${RIAK_USER}
